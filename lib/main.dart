@@ -51,20 +51,24 @@ class _Magic8BallPageState extends State<Magic8BallPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Expanded(
-        child: TextButton(
-          style: ButtonStyle(
-            overlayColor:
-                MaterialStateColor.resolveWith((states) => Colors.white),
+    return SafeArea(
+      child: Center(
+        child: Column(children: [
+          Expanded(
+            child: TextButton(
+              style: ButtonStyle(
+                overlayColor:
+                    MaterialStateColor.resolveWith((states) => Colors.white),
+              ),
+              onPressed: () {
+                randomizeAnswer();
+              },
+              child: Image.asset(
+                "images/ball$BallNo.png",
+              ),
+            ),
           ),
-          onPressed: () {
-            randomizeAnswer();
-          },
-          child: Image.asset(
-            "images/ball$BallNo.png",
-          ),
-        ),
+        ]),
       ),
     );
   }
